@@ -8,7 +8,7 @@
 
 body {
   font-family: "Segoe UI", "Malgun Gothic", sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #ffcc02 100%);
   min-height: 100vh;
   padding: 20px;
   line-height: 1.6;
@@ -22,6 +22,25 @@ h1 {
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
+  font-family: "Malgun Gothic", serif;
+  position: relative;
+}
+
+/* Add Korean traditional design element */
+h1::before {
+  content: "🏢";
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+h1::after {
+  content: "한식 맛집";
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0.9;
+  margin-top: 10px;
 }
 
 form {
@@ -39,6 +58,8 @@ fieldset {
   padding: 30px;
   border-bottom: 1px solid #eee;
   position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 fieldset:last-of-type {
@@ -50,9 +71,9 @@ legend {
   right: 15px;
   font-size: 1.4rem;
   font-weight: bold;
-  color: #4a5568;
+  color: #d84315;
   padding: 0 15px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #ff6b6b, #ff8a65);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -66,8 +87,24 @@ legend::after {
   left: 10px;
   width: 50px;
   height: 3px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #ff6b6b, #ff8a65);
   border-radius: 2px;
+}
+
+/* Add food-related icons before each legend */
+fieldset:nth-of-type(1) legend::before {
+  content: "👥 ";
+  margin-right: 8px;
+}
+
+fieldset:nth-of-type(2) legend::before {
+  content: "🍽️ ";
+  margin-right: 8px;
+}
+
+fieldset:nth-of-type(3) legend::before {
+  content: "💳 ";
+  margin-right: 8px;
 }
 
 p {
@@ -102,8 +139,8 @@ input[type="checkbox"] {
 
 input[type="radio"]:checked,
 input[type="checkbox"]:checked {
-  border-color: #667eea;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-color: #ff6b6b;
+  background: linear-gradient(45deg, #ff6b6b, #ff8a65);
 }
 
 input[type="radio"]:checked::after {
@@ -131,23 +168,30 @@ input[type="checkbox"]:checked::after {
 
 input[type="radio"]:hover,
 input[type="checkbox"]:hover {
-  border-color: #667eea;
-  transform: scale(1.1);
+  border-color: #ff6b6b;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
 }
 
 label {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: #2d3748;
   cursor: pointer;
   margin-right: 20px;
   display: inline-block;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
   vertical-align: middle;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-height: 44px;
+  line-height: 1.4;
 }
 
 label:hover {
-  color: #667eea;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  transform: translateX(3px);
 }
 
 /* 메뉴 이름 입력 필드 */
@@ -180,7 +224,7 @@ fieldset:nth-of-type(2) label[for="menuB"] {
 
 /* 제출 버튼 */
 button {
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #ff6b6b, #ff8a65);
   color: white;
   border: none;
   padding: 18px 50px;
@@ -190,13 +234,26 @@ button {
   cursor: pointer;
   margin: 30px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
   letter-spacing: 1px;
+  position: relative;
+}
+
+/* Add Korean-style button decoration */
+button::before {
+  content: "🍽️";
+  margin-right: 8px;
+}
+
+button::after {
+  content: "🎉";
+  margin-left: 8px;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 25px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(45deg, #ff5252, #ff7043);
 }
 
 button:active {
@@ -216,21 +273,36 @@ button:active {
   }
 
   fieldset {
-    padding: 20px;
+    padding: 25px 20px;
   }
 
   legend {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
-  button[type="submit"] {
+  button {
     width: calc(100% - 40px);
     margin: 20px;
+    min-height: 54px;
+    font-size: 1.4rem;
   }
 
   input[type="text"] {
-    width: 120px;
+    width: 140px;
     margin-left: 5px;
+    font-size: 1.1rem;
+  }
+
+  label {
+    font-size: 1.2rem;
+    min-height: 48px;
+    padding: 12px 15px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -247,13 +319,35 @@ fieldset {
 }
 
 fieldset:hover {
-  background-color: #fafafa;
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 접근성을 위한 포커스 스타일 */
 input:focus {
-  outline: 3px solid rgba(102, 126, 234, 0.3);
-  outline-offset: 2px;
+  outline: 3px solid rgba(255, 107, 107, 0.5);
+  outline-offset: 3px;
+  transform: scale(1.05);
+}
+
+/* 터치 친화적인 클릭 영역 확장 */
+input[type="radio"],
+input[type="checkbox"] {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  input[type="radio"]:checked,
+  input[type="checkbox"]:checked {
+    border-width: 3px;
+  }
+
+  label {
+    font-weight: bold;
+  }
 }
 
 /* 구분선 스타일 */
