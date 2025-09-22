@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>동원관 식당 주문 키오스크</title>
+  </head>
+  <body>
+    <h1>동원관 식당 주문 키오스크</h1>
+
+    <form action="#" method="POST">
+      <!-- 구성원 구분 섹션 -->
+      <fieldset>
+        <legend>구성원 구분</legend>
+        <input
+          type="radio"
+          id="member"
+          name="memberType"
+          value="member"
+          required
+        />
+        <label for="member">구성원</label><br />
+        <input
+          type="radio"
+          id="nonMember"
+          name="memberType"
+          value="nonMember"
+          required
+        />
+        <label for="nonMember">비구성원</label>
+      </fieldset>
+
+      <!-- 메뉴 선택 섹션 -->
+      <fieldset>
+        <legend>메뉴 선택</legend>
+
+        <p><strong>메뉴 선택칸:</strong></p>
+        <input type="radio" id="menuA" name="menu" value="A" required />
+        <label for="menuA">메뉴 A</label>
+        <input type="text" name="menuAName" value="불고기정식" readonly /><br />
+        <input type="radio" id="menuB" name="menu" value="B" required />
+        <label for="menuB">메뉴 B</label>
+        <input
+          type="text"
+          name="menuBName"
+          value="갈비정식"
+          readonly
+        /><br /><br />
+
+        <p><strong>밥 양 선택:</strong></p>
+        <input
+          type="radio"
+          id="riceMany"
+          name="riceAmount"
+          value="many"
+          required
+        />
+        <label for="riceMany">많은 밥</label><br />
+        <input
+          type="radio"
+          id="riceLittle"
+          name="riceAmount"
+          value="little"
+          required
+        />
+        <label for="riceLittle">적은 밥</label><br /><br />
+
+        <p><strong>제외할 반찬 선택 (복수 선택 가능):</strong></p>
+        <input
+          type="checkbox"
+          id="exclude1"
+          name="excludeSideDish"
+          value="kimchi"
+        />
+        <label for="exclude1">김치</label><br />
+        <input
+          type="checkbox"
+          id="exclude2"
+          name="excludeSideDish"
+          value="pickle"
+        />
+        <label for="exclude2">단무지</label><br />
+        <input
+          type="checkbox"
+          id="exclude3"
+          name="excludeSideDish"
+          value="soup"
+        />
+        <label for="exclude3">국/탕</label><br />
+        <input
+          type="checkbox"
+          id="exclude4"
+          name="excludeSideDish"
+          value="salad"
+        />
+        <label for="exclude4">샐러드</label><br /><br />
+      </fieldset>
+
+      <!-- 결제 섹션 -->
+      <fieldset>
+        <legend>결제</legend>
+
+        <p><strong>결제 방법 선택:</strong></p>
+        <input type="radio" id="payco" name="payment" value="payco" required />
+        <label for="payco">PAYCO</label><br />
+
+        <input
+          type="radio"
+          id="mealTicket"
+          name="payment"
+          value="mealTicket"
+          required
+        />
+        <label for="mealTicket">식권 구매</label><br />
+
+        <input
+          type="radio"
+          id="memberCard"
+          name="payment"
+          value="memberCard"
+          required
+        />
+        <label for="memberCard">구성원등록카드</label><br /><br />
+      </fieldset>
+
+      <br />
+      <button type="submit">주문하기</button>
+    </form>
+  </body>
+</html>

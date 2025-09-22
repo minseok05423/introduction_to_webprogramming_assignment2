@@ -1,0 +1,263 @@
+/* 동원관 식당 키오스크 스타일 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+fieldset:last-of-type {
+  border-bottom: none;
+}
+
+legend {
+  top: 10px;
+  right: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a5568;
+  padding: 0 15px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+legend::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+p {
+  margin: 20px 0 15px 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+strong {
+  color: #4a5568;
+}
+
+/* 라디오 버튼과 체크박스 스타일링 */
+input[type="radio"],
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  appearance: none;
+  border: 2px solid #cbd5e0;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] {
+  border-radius: 4px;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  border-color: #667eea;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover {
+  border-color: #667eea;
+  transform: scale(1.1);
+}
+
+label {
+  font-size: 1.1rem;
+  color: #4a5568;
+  cursor: pointer;
+  margin-right: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  vertical-align: middle;
+}
+
+label:hover {
+  color: #667eea;
+}
+
+/* 메뉴 이름 입력 필드 */
+input[type="text"] {
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-left: 10px;
+  font-size: 1rem;
+  color: #4a5568;
+  width: 150px;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* 메뉴 선택 섹션 레이아웃 */
+fieldset:nth-of-type(2) label[for="menuA"],
+fieldset:nth-of-type(2) label[for="menuB"] {
+  display: inline-block;
+  width: 80px;
+  margin-right: 10px;
+}
+
+/* 제출 버튼 */
+button {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  form {
+    margin: 0 10px;
+    border-radius: 15px;
+  }
+
+  fieldset {
+    padding: 20px;
+  }
+
+  legend {
+    font-size: 1.2rem;
+  }
+
+  button[type="submit"] {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+
+  input[type="text"] {
+    width: 120px;
+    margin-left: 5px;
+  }
+}
+
+/* 입력 요소들 간격 조정 */
+fieldset > div,
+fieldset > br + input,
+fieldset > input:first-of-type {
+  margin-top: 10px;
+}
+
+/* 호버 효과 애니메이션 */
+fieldset {
+  transition: background-color 0.3s ease;
+}
+
+fieldset:hover {
+  background-color: #fafafa;
+}
+
+/* 접근성을 위한 포커스 스타일 */
+input:focus {
+  outline: 3px solid rgba(102, 126, 234, 0.3);
+  outline-offset: 2px;
+}
+
+/* 구분선 스타일 */
+br + br {
+  display: block;
+  margin: 15px 0;
+}
